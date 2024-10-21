@@ -18,8 +18,10 @@ public interface AtendimentoRepository extends JpaRepository<Atendimento, Intege
     @Query(value = "SELECT * FROM atendimento WHERE id = :id", nativeQuery = true)
     Atendimento findByIdByNativeQuery(@Param("id") Integer id);
 
+    @Modifying
+    @Transactional
     @Query(value = "INSERT INTO atendimento(id_ocorrencia, id_equipe) VALUES(:id_ocorrencia, :id_equipe)", nativeQuery = true)
-    Atendimento insertByNativeQuery(@Param("id_ocorrencia") Integer id_ocorrencia, @Param("id_equipe") Integer id_equipe);
+    Integer insertByNativeQuery(@Param("id_ocorrencia") Integer id_ocorrencia, @Param("id_equipe") Integer id_equipe);
 
     @Modifying
     @Transactional

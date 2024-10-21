@@ -33,9 +33,8 @@ public class FuncionarioController {
     }
 
     @PostMapping()
-    public Funcionario salvarFuncionario(@RequestBody Funcionario funcionario) {
-        funcionario = funcionarioService.salvarFuncionario(funcionario);
-        return funcionario;
+    public Integer salvarFuncionario(@RequestBody Funcionario funcionario) {
+        return funcionarioService.salvarFuncionario(funcionario);
     }
 
     @PutMapping("{id}")

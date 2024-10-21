@@ -21,7 +21,7 @@ public class EquipeService {
         return equipeRepository.findByIdByNativeQuery(id);
     }
 
-    public Equipe salvarEquipe(Equipe equipe) {
+    public Integer salvarEquipe(Equipe equipe) {
         return equipeRepository.insertByNativeQuery(equipe.getCod_primeiro_integrante(), equipe.getCod_segundo_integrante(), equipe.getCod_terceiro_integrante(), equipe.getCod_quarto_integrante());
     }
 

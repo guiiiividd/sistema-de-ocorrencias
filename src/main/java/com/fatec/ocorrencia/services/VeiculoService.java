@@ -21,11 +21,11 @@ public class VeiculoService {
         return veiculoRepository.findByIdByNativeQuery(id);
     }
 
-    public Void salvarVeiculo(Veiculo veiculo) {
+    public Integer salvarVeiculo(Veiculo veiculo) {
         return veiculoRepository.insertByNativeQuery(veiculo.getPlaca_veiculo(), veiculo.getTipo_veiculo(), veiculo.getCapacidade_veiculo(), veiculo.getTipo_ocorrencia_tratada(), veiculo.getStatus_veiculo());
     }
 
-    public Void atualizarVeiculo(int id, Veiculo veiculoEditado) {
+    public Integer atualizarVeiculo(int id, Veiculo veiculoEditado) {
         Veiculo veiculo = listarVeiculo(id);
 
         veiculo.setPlaca_veiculo(veiculoEditado.getPlaca_veiculo());

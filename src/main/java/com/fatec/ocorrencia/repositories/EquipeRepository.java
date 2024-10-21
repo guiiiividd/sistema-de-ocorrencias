@@ -18,8 +18,10 @@ public interface EquipeRepository extends JpaRepository<Equipe, Integer>{
     @Query(value = "SELECT * FROM equipe WHERE id_equipe = :id_equipe", nativeQuery = true)
     Equipe findByIdByNativeQuery(@Param("id_equipe") Integer id_equipe);
 
+    @Modifying
+    @Transactional
     @Query(value = "INSERT INTO equipe(cod_primeiro_integrante, cod_segundo_integrante, cod_terceiro_integrante, cod_quarto_integrante) VALUES(:cod_primeiro_integrante, :cod_segundo_integrante, :cod_terceiro_integrante, :cod_quarto_integrante)", nativeQuery = true)
-    Equipe insertByNativeQuery(@Param("cod_primeiro_integrante") Integer cod_primeiro_integrante, @Param("cod_segundo_integrante") Integer cod_segundo_integrante, @Param("cod_terceiro_integrante") Integer cod_terceiro_integrante, @Param("cod_quarto_integrante") Integer cod_quarto_integrante);
+    Integer insertByNativeQuery(@Param("cod_primeiro_integrante") Integer cod_primeiro_integrante, @Param("cod_segundo_integrante") Integer cod_segundo_integrante, @Param("cod_terceiro_integrante") Integer cod_terceiro_integrante, @Param("cod_quarto_integrante") Integer cod_quarto_integrante);
 
     @Modifying
     @Transactional

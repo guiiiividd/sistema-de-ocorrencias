@@ -33,9 +33,8 @@ public class OcorrenciaController {
     }
 
     @PostMapping()
-    public Ocorrencia salvarOcorrencia(@RequestBody Ocorrencia ocorrencia) {
-        ocorrencia = ocorrenciaService.salvarOcorrencia(ocorrencia);
-        return ocorrencia;
+    public Integer salvarOcorrencia(@RequestBody Ocorrencia ocorrencia) {
+        return ocorrenciaService.salvarOcorrencia(ocorrencia);
     }
 
     @PutMapping("{id}")

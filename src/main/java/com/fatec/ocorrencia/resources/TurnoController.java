@@ -33,9 +33,8 @@ public class TurnoController {
     }
 
     @PostMapping()
-    public Turno salvarTurno(@RequestBody Turno turno) {
-        turno = turnoService.salvarTurno(turno);
-        return turno;
+    public Integer salvarTurno(@RequestBody Turno turno) {
+        return turnoService.salvarTurno(turno);
     }
 
     @PutMapping("{id}")

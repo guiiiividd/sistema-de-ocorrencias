@@ -33,12 +33,12 @@ public class VeiculoController {
     }
 
     @PostMapping()
-    public Void salvarVeiculo(@RequestBody Veiculo veiculo) {
+    public Integer salvarVeiculo(@RequestBody Veiculo veiculo) {
         return veiculoService.salvarVeiculo(veiculo);
     }
 
     @PutMapping("{id}")
-    public Void editarVeiculo(@PathVariable int id, @RequestBody Veiculo veiculoEditado) {
+    public Integer editarVeiculo(@PathVariable int id, @RequestBody Veiculo veiculoEditado) {
         return veiculoService.atualizarVeiculo(id, veiculoEditado);
     }
 }

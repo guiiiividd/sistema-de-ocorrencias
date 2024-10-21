@@ -21,7 +21,7 @@ public class TurnoService {
         return turnoRepository.findByIdByNativeQuery(id);
     }
 
-    public Turno salvarTurno(Turno turno) {
+    public Integer salvarTurno(Turno turno) {
         return turnoRepository.insertByNativeQuery(turno.getHora_inicio(), turno.getHora_fim(), turno.getEscala(), turno.getId_equipe(), turno.getId_veiculo());
     }
 

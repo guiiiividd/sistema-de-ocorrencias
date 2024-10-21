@@ -21,7 +21,7 @@ public class FuncionarioService {
         return funcionarioRepository.findByIdByNativeQuery(id);
     }
 
-    public Funcionario salvarFuncionario(Funcionario funcionario) {
+    public Integer salvarFuncionario(Funcionario funcionario) {
         return funcionarioRepository.insertByNativeQuery(funcionario.getNome(), funcionario.getCargo());
     }
 

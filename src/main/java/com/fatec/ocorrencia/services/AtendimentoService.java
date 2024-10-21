@@ -21,7 +21,7 @@ public class AtendimentoService {
         return atendimentoRepository.findByIdByNativeQuery(id);
     }
 
-    public Atendimento salvarAtendimento(Atendimento atendimento) {
+    public Integer salvarAtendimento(Atendimento atendimento) {
         return atendimentoRepository.insertByNativeQuery(atendimento.getId_ocorrencia(), atendimento.getId_equipe());
     }
 

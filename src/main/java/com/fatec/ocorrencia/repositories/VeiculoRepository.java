@@ -21,14 +21,14 @@ public interface VeiculoRepository extends JpaRepository<Veiculo, Integer> {
     @Modifying
     @Transactional
     @Query(value = "INSERT INTO veiculo(placa_veiculo, tipo_veiculo, capacidade_veiculo, tipo_ocorrencia_tratada, status_veiculo) VALUES(:placa_veiculo, :tipo_veiculo, :capacidade_veiculo, :tipo_ocorrencia_tratada, :status_veiculo)", nativeQuery = true)
-    Void insertByNativeQuery(@Param("placa_veiculo") String placa_veiculo,
+    Integer insertByNativeQuery(@Param("placa_veiculo") String placa_veiculo,
             @Param("tipo_veiculo") String tipo_veiculo, @Param("capacidade_veiculo") Integer capacidade_veiculo,
             @Param("tipo_ocorrencia_tratada") String tipo_ocorrencia_tratada, @Param("status_veiculo") String status);
 
     @Modifying
     @Transactional
     @Query(value = "UPDATE veiculo SET placa_veiculo = :placa_veiculo, tipo_veiculo = :tipo_veiculo, capacidade_veiculo = :capacidade_veiculo, tipo_ocorrencia_tratada = :tipo_ocorrencia_tratada, status_veiculo = :status_veiculo WHERE id_veiculo = :id_veiculo", nativeQuery = true)
-    Void updateByNativeQuery(@Param("placa_veiculo") String placa_veiculo,
+    Integer updateByNativeQuery(@Param("placa_veiculo") String placa_veiculo,
             @Param("tipo_veiculo") String tipo_veiculo, @Param("capacidade_veiculo") Integer capacidade_veiculo,
             @Param("tipo_ocorrencia_tratada") String tipo_ocorrencia_tratada, @Param("status_veiculo") String status,
             @Param("id_veiculo") Integer id_veiculo);

@@ -33,9 +33,8 @@ public class AtendimentoController {
     }
 
     @PostMapping()
-    public Atendimento salvarAtendimento(@RequestBody Atendimento atendimento) {
-        atendimento = atendimentoService.salvarAtendimento(atendimento);
-        return atendimento;
+    public Integer salvarAtendimento(@RequestBody Atendimento atendimento) {
+        return atendimentoService.salvarAtendimento(atendimento);
     }
 
     @PutMapping("{id}")

@@ -33,9 +33,8 @@ public class EquipeController {
     }
 
     @PostMapping()
-    public Equipe salvarEquipe(@RequestBody Equipe equipe) {
-        equipe = equipeService.salvarEquipe(equipe);
-        return equipe;
+    public Integer salvarEquipe(@RequestBody Equipe equipe) {
+        return equipeService.salvarEquipe(equipe);
     }
 
     @PutMapping("{id}")

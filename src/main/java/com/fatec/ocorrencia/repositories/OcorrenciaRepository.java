@@ -18,8 +18,10 @@ public interface OcorrenciaRepository extends JpaRepository<Ocorrencia, Integer>
     @Query(value = "SELECT * FROM ocorrencia WHERE id = :id", nativeQuery = true)
     Ocorrencia findByIdByNativeQuery(@Param("id") Integer id);
 
+    @Modifying
+    @Transactional
     @Query(value = "INSERT INTO ocorrencia(tipo_ocorrencia, estado_ocorrencia, descricao_ocorrencia) VALUES(:tipo_ocorrencia, :estado_ocorrencia, :descricao_ocorrencia)", nativeQuery = true)
-    Ocorrencia insertByNativeQuery(@Param("tipo_ocorrencia") String tipo_ocorrencia, @Param("estado_ocorrencia") String estado_ocorrencia, @Param("descricao_ocorrencia") String descricao_ocorrencia);
+    Integer insertByNativeQuery(@Param("tipo_ocorrencia") String tipo_ocorrencia, @Param("estado_ocorrencia") String estado_ocorrencia, @Param("descricao_ocorrencia") String descricao_ocorrencia);
 
     @Modifying
     @Transactional

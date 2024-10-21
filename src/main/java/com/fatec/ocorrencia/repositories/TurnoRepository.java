@@ -18,8 +18,10 @@ public interface TurnoRepository extends JpaRepository<Turno, Integer> {
     @Query(value = "SELECT * FROM turno WHERE id_turno = :id_turno", nativeQuery = true)
     Turno findByIdByNativeQuery(@Param("id_turno") Integer id_turno);
 
+    @Modifying
+    @Transactional
     @Query(value = "INSERT INTO turno(hora_inicio, hora_fim, escala, id_equipe, id_veiculo) VALUES(:hora_inicio, :hora_fim, :escala, :id_equipe, :id_veiculo)", nativeQuery = true)
-    Turno insertByNativeQuery(@Param("hora_inicio") String hora_inicio, @Param("hora_fim") String hora_fim,
+    Integer insertByNativeQuery(@Param("hora_inicio") String hora_inicio, @Param("hora_fim") String hora_fim,
             @Param("escala") String escala, @Param("id_equipe") Integer id_equipe,
             @Param("id_veiculo") Integer id_veiculo);
 

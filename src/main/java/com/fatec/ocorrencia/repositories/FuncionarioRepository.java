@@ -18,8 +18,10 @@ public interface FuncionarioRepository extends JpaRepository<Funcionario, Intege
     @Query(value = "SELECT * FROM funcionario WHERE id_funcionario = :id_funcionario", nativeQuery = true)
     Funcionario findByIdByNativeQuery(@Param("id_funcionario") Integer id_funcionario);
 
+    @Modifying
+    @Transactional
     @Query(value = "INSERT INTO funcionario(nome, cargo) VALUES(:nome, :cargo)", nativeQuery = true)
-    Funcionario insertByNativeQuery(@Param("nome") String nome, @Param("cargo") String cargo);
+    Integer insertByNativeQuery(@Param("nome") String nome, @Param("cargo") String cargo);
 
     @Modifying
     @Transactional

@@ -21,7 +21,7 @@ public class OcorrenciaService {
         return ocorrenciaRepository.findByIdByNativeQuery(id);
     }
 
-    public Ocorrencia salvarOcorrencia(Ocorrencia ocorrencia) {
+    public Integer salvarOcorrencia(Ocorrencia ocorrencia) {
         return ocorrenciaRepository.insertByNativeQuery(ocorrencia.getTipo_ocorrencia(), ocorrencia.getEstado_ocorrencia(), ocorrencia.getDescricao_ocorrencia());
     }
 
